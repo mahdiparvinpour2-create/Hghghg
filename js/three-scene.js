@@ -1,128 +1,111 @@
 // ===============================
-// MovieVerse 3D Scene
-// Part 1
+// MovieVerse 3D Engine
+// Version 1.0
 // ===============================
+
+// Canvas
+const container = document.getElementById("bg3d");
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x020202);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
-    60,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    2000
+60,
+window.innerWidth / window.innerHeight,
+0.1,
+2000
 );
 
-camera.position.z = 40;
+camera.position.set(0,0,45);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
-    alpha: true,
-    antialias: true
+alpha:true,
+antialias:true
 });
 
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(
+window.innerWidth,
+window.innerHeight
+);
 
-// Attach renderer
-const bg = document.getElementById("bg3d");
-if (bg) {
-    bg.appendChild(renderer.domElement);
-}
+renderer.setPixelRatio(
+Math.min(window.devicePixelRatio,2)
+);
+
+container.appendChild(
+renderer.domElement
+);
 
 // Ambient Light
-const ambient = new THREE.AmbientLight(
-    0xffffff,
-    1
+const ambient =
+new THREE.AmbientLight(
+0xffffff,
+1.2
 );
 
 scene.add(ambient);
 
-// Directional Light
-const light = new THREE.DirectionalLight(
-    0xffffff,
-    3
+// Main Light
+const light =
+new THREE.DirectionalLight(
+0xffffff,
+3
 );
 
-light.position.set(15,20,10);
+light.position.set(
+15,
+20,
+10
+);
 
 scene.add(light);
 
-// Point Lights
-const blueLight = new THREE.PointLight(
-    0x00aaff,
-    30,
-    400
+// Blue Light
+const blue =
+new THREE.PointLight(
+0x00aaff,
+25,
+300
 );
 
-blueLight.position.set(
-    -20,
-    10,
-    20
+blue.position.set(
+-20,
+10,
+20
 );
 
-scene.add(blueLight);
+scene.add(blue);
 
-const redLight = new THREE.PointLight(
-    0xff2222,
-    20,
-    400
+// Red Light
+const red =
+new THREE.PointLight(
+0xff3333,
+25,
+300
 );
 
-redLight.position.set(
-    20,
-    -10,
-    20
+red.position.set(
+20,
+-10,
+20
 );
 
-scene.add(redLight);
+scene.add(red);
 
-// Geometry
-const particlesGeometry =
-new THREE.BufferGeometry();
-
-const particleCount = 2500;
-
-const positions =
-new Float32Array(
-particleCount * 3
+// Purple Light
+const purple =
+new THREE.PointLight(
+0xaa00ff,
+18,
+300
 );
 
-for(let i=0;i<particleCount*3;i++){
-
-positions[i]=(Math.random()-0.5)*300;
-
-}
-
-particlesGeometry.setAttribute(
-'position',
-new THREE.BufferAttribute(
-positions,
-3
-)
+purple.position.set(
+0,
+15,
+-20
 );
 
-// Material
-const particlesMaterial =
-new THREE.PointsMaterial({
-
-color:0xffffff,
-
-size:.25,
-
-transparent:true,
-
-opacity:.8
-
-});
-
-// Points
-const stars=
-new THREE.Points(
-particlesGeometry,
-particlesMaterial
-);
-
-scene.add(stars);
+scene.add(purple);
