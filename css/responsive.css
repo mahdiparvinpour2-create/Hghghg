@@ -1,0 +1,84 @@
+/* ===========================
+   Responsive Design
+=========================== */
+
+@media (max-width:1200px){
+
+.content h1{
+font-size:56px;
+}
+
+.navbar{
+padding:18px 35px;
+}
+
+}
+
+@media (max-width:992px){
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.navbar ul{
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.content h1{
+font-size:44px;
+}
+
+.content p{
+font-size:18px;
+}
+
+}
+
+@media (max-width:768px){
+
+.navbar{
+padding:15px;
+}
+
+.navbar ul{
+flex-direction:column;
+text-align:center;
+}
+
+.content{
+width:90%;
+}
+
+.content h1{
+font-size:34px;
+}
+
+.content p{
+font-size:16px;
+}
+
+.content button{
+padding:14px 28px;
+font-size:16px;
+}
+
+}
+
+@media (max-width:480px){
+
+.logo{
+font-size:24px;
+}
+
+.content h1{
+font-size:28px;
+}
+
+.content p{
+font-size:14px;
+}
+
+}
