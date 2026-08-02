@@ -1,0 +1,38 @@
+/* =====================
+   Movie Slider
+===================== */
+
+.slider{
+    width:90%;
+    max-width:1400px;
+    margin:60px auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+}
+
+.slider-box{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    padding:40px;
+    background:rgba(20,20,20,.8);
+    backdrop-filter:blur(15px);
+}
+
+.slider-image{
+    width:350px;
+    height:450px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.slider-title{
+    font-size:45px;
+    color:white;
+}
+
+.slider-info{
+    color:#ddd;
+    font-size:22px;
+}
